@@ -1,5 +1,5 @@
 [package]
-name = "CommonLibSSE-NG-rs"
+name = "commonlib-rs"
 version = "0.1.0"
 edition = "2021"
 

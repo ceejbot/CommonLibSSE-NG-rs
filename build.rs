@@ -4,7 +4,7 @@ use std::path::PathBuf;
 fn main() {
     println!("cargo:rustc-link-search=extern/CommonLibSSE-NG");
 
-    println!("cargo:rustc-link-lib=bz2");
+    println!("cargo:rustc-link-lib=bz2"); // TODO this needs to be the CommonLibSSE-NG dll
 
     println!("cargo:rerun-if-changed=wrapper.h");
 
