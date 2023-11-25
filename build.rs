@@ -3,16 +3,15 @@ use std::path::PathBuf;
 
 fn main() {
     println!("cargo:rustc-link-search=extern/CommonLibSSE-NG");
-    println!("cargo:rustc-link-search=libs/CommonLibSSE-NG");
     println!("cargo:rustc-link-lib=libs/CommonLibSSE.lib");
 
     println!("cargo:rerun-if-changed=wrapper.h");
 
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
-        .clang_arg("-isystem'../extern/CommonLibSSE-NG/include'")
         .clang_arg("-Iextern/CommonLibSSE-NG/include")
-        .parse_callbacks(Box::new(bindgen::CargoCallbacks))
+        .clang_arg("-v")
+        .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .generate()
         .expect("Unable to generate bindings");
 

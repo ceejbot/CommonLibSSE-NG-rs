@@ -1,7 +1,7 @@
 set windows-shell := ["pwsh.exe", "-Command"]
 set shell := ["bash", "-uc"]
 
-PRESET := "release-msvc-vcpkg-all"
+PRESET := "release-clang-cl-vcpkg-all"
 
 # List recipes.
 _help:
