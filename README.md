@@ -10,7 +10,8 @@ Requires the following:
 - [Visual Studio 2022](https://visualstudio.microsoft.com) with C++ compilers installed
 - [CMake](https://cmake.org)
 - [vcpkg](https://github.com/microsoft/vcpkg) with `VCPKG_ROOT` set in a user environment variable
+- [LLVM](https://github.com/llvm/llvm-project/releases) installed from an official release.
 
-Run `just bindgen` to build if you have Rust installed.
+Run `just bindgen` to build if you have [just](https://just.systems) installed. Otherwise look at what just does and run those commands in a pwsh 7 shell.
 
 The license will end up being whatever CommonLibSSE-NG's license is.
