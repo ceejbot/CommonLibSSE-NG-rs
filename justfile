@@ -1,15 +1,22 @@
+set windows-shell := ["pwsh.exe", "-Command"]
+set shell := ["bash", "-uc"]
+
+PRESET := "release-msvc-vcpkg-all"
+
 # List recipes.
 _help:
 	just -l
 
 # Run cmake & build CommonLibSSE-NG.
 cmake:
-	cmake extern/CommonLibSSE-NG
+	cd extern/CommonLibSSE-NG; cmake -G "Visual Studio 17 2022" -B build -S . --preset build-{{PRESET}}
 
 # Build the commonlib dll.
 build: cmake
-	cmake --build --preset vs2022-windows --config Release
+    cd extern/CommonLibSSE-NG; cmake --build build --config Release
+    cp extern/CommonLibSSE-NG/build/Release/CommonLibSSE.lib libs
 
+# Build rust bindings.
 bindgen: build
 	cargo build --release
 
